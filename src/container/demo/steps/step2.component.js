@@ -19,7 +19,7 @@ class Step2 extends React.Component {
 
   render() {
     return (
-      <div className="step1-container">
+      <div className="step2-container">
         <Jumbotron className="jumbotron-container">
           <h1>What is your company type?</h1>
           <p>

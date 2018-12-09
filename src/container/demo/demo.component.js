@@ -3,6 +3,7 @@ import './style.css';
 
 import Step1 from './steps/step1.component';
 import Step2 from './steps/step2.component';
+import Step3 from './steps/step3.component';
 
 const iconList = [
   'far fa-address-book',
@@ -17,7 +18,7 @@ class Demo extends React.Component {
     this.state = {
       step: 'step3',
       name: 'Test Company',
-      companyType: '',
+      type: '',
       config: {
         size: 30,
         color: '#343434',
@@ -46,26 +47,16 @@ class Demo extends React.Component {
   }
 
   render() {
-    let control = (
-      <div>
-        <div className="left-col">
-          <div className="control-container"></div>
-
-        </div>
-        <div className="right-col">logo</div>
-      </div>
-    );
-    console.log(this.state);
     let content = '';
     switch(this.state.step) {
       case 'step1':
-        content = <Step1 confirm={this.changeName}/>;
+        content = <Step1 confirm={this.changeName} />;
       break;
       case 'step2':
-        content = <Step2 confirm={this.changeType}/>;
+        content = <Step2 confirm={this.changeType} />;
       break;
       case 'step3':
-        content = control;
+        content = <Step3 type={this.state.type} name={this.state.name} />;
       break;
       default:
       break;

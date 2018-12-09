@@ -1,0 +1,44 @@
+.step1-container {
+  padding: 10vh 10vw;
+  .jumbotron-container {
+    border-radius: 10px;
+    padding: 40px;
+    .name-input-box {
+      input {
+        font-size: 50px;
+        margin: 40px 0 30px;
+        border: none;
+        border-bottom: 4px solid #666;
+        background: none;
+        text-align: center;
+        color: orange;
+        max-width: 100%;
+      }
+      input:focus {
+        outline-color: rgba(0,0,0,0);
+      }
+    }
+  }
+}
+
+.type-selection {
+  margin-top: 40px;
+}
+
+.left-col {
+  display: inline-block;
+  width: 30%;
+  max-width: 560px;
+}
+
+.right-col {
+  display: inline-block;
+  width: 65%;
+}
+
+.control-container {
+  background: #DDD;
+  padding: 20px;
+  border: 2px solid #CCC;
+  border-radius: 10px;
+}

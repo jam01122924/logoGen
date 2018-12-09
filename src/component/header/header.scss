@@ -1,0 +1,10 @@
+.App {
+  .header-container {
+    .navbar {
+      border-radius: 0;
+      box-shadow: 0 0 10px #101010;
+      color: orange;
+    }
+    z-index: 999;
+  }
+}

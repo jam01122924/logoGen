@@ -38,10 +38,14 @@
   margin-left: 5%;
   vertical-align: top;
   text-align: center;
+  padding: 20px;
   .logo-container {
     position: relative;
     overflow: hidden;
     text-align: center;
+    i, .logo-text {
+      cursor: pointer;
+    }
   }
 }
 
@@ -68,6 +72,14 @@
     width: calc(100% - 110px);
     display: inline-block;
     vertical-align: middle;
+  }
+  .icon-picker-container {
+    i {
+      font-size: 32px;
+      border: 1px solid black;
+    }
+    span {
+    }
   }
   .color-sample {
     width: 25px;

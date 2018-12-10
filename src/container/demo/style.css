@@ -1,39 +1,56 @@
 .step1-container {
-  padding: 10vh 10vw; }
-  .step1-container .jumbotron-container {
-    border-radius: 10px;
-    padding: 40px; }
-    .step1-container .jumbotron-container .name-input-box input {
-      font-size: 50px;
-      margin: 40px 0 30px;
-      border: none;
-      border-bottom: 4px solid #666;
-      background: none;
-      text-align: center;
-      color: orange;
-      max-width: 100%; }
-    .step1-container .jumbotron-container .name-input-box input:focus {
-      outline-color: rgba(0, 0, 0, 0); }
+  padding: 10vh 10vw;
+}
+
+.step1-container .jumbotron-container {
+  border-radius: 10px;
+  padding: 40px;
+}
+
+.step1-container .jumbotron-container .name-input-box input {
+  font-size: 50px;
+  margin: 40px 0 30px;
+  border: none;
+  border-bottom: 4px solid #666;
+  background: none;
+  text-align: center;
+  color: orange;
+  max-width: 100%;
+}
+
+.step1-container .jumbotron-container .name-input-box input:focus {
+  outline-color: rgba(0, 0, 0, 0);
+}
 
 .type-selection {
-  margin-top: 40px; }
+  margin-top: 40px;
+}
 
 .left-col {
   display: inline-block;
   width: 30%;
   height: calc(100vh - 80px);
-  max-width: 560px; }
+  max-width: 560px;
+}
 
 .right-col {
   display: inline-block;
   width: 60%;
   margin-left: 5%;
   vertical-align: top;
-  text-align: center; }
-  .right-col .logo-container {
-    position: relative;
-    overflow: hidden;
-    text-align: center; }
+  text-align: center;
+  padding: 20px;
+}
+
+.right-col .logo-container {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.right-col .logo-container i, .right-col .logo-container .logo-text {
+  cursor: pointer;
+}
 
 .control-container {
   background: #EEE;
@@ -41,29 +58,49 @@
   border: 2px solid #CCC;
   border-radius: 10px;
   text-align: left;
-  box-shadow: 5px 5px 20px black; }
-  .control-container h2 {
-    color: orange;
-    margin: 10px 0 20px 0; }
-  .control-container label {
-    font-size: 18px;
-    min-width: 100px;
-    display: inline-block; }
-  .control-container .input-field, .control-container .color-picker {
-    margin-bottom: 10px; }
-  .control-container .range-picker {
-    width: calc(100% - 110px);
-    display: inline-block;
-    vertical-align: middle; }
-  .control-container .color-sample {
-    width: 25px;
-    height: 25px;
-    border: 1px solid black;
-    vertical-align: top;
-    display: inline-block;
-    cursor: pointer; }
-  .control-container .color-picker-container {
-    vertical-align: top;
-    display: inline-block; }
-    .control-container .color-picker-container .color-picker-confirm-btn {
-      margin-top: 15px; }
+  box-shadow: 5px 5px 20px black;
+}
+
+.control-container h2 {
+  color: orange;
+  margin: 10px 0 20px 0;
+}
+
+.control-container label {
+  font-size: 18px;
+  min-width: 100px;
+  display: inline-block;
+}
+
+.control-container .input-field, .control-container .color-picker {
+  margin-bottom: 10px;
+}
+
+.control-container .range-picker {
+  width: calc(100% - 110px);
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.control-container .icon-picker-container i {
+  font-size: 32px;
+  border: 1px solid black;
+}
+
+.control-container .color-sample {
+  width: 25px;
+  height: 25px;
+  border: 1px solid black;
+  vertical-align: top;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.control-container .color-picker-container {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.control-container .color-picker-container .color-picker-confirm-btn {
+  margin-top: 15px;
+}

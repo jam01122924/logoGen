@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, A } from 'react-bootstrap';
+import domtoimage from 'dom-to-image';
 
 import { SketchPicker } from 'react-color';
 
@@ -50,6 +51,7 @@ class Step3 extends React.Component {
       borderSize: 15,
       borderColor: '#4A90E2',
       borderRadius: 200,
+      showIconPicker: false,
       showColorPicker: false,
       showBgColorPicker: false,
       showNameColorPicker: false,
@@ -57,6 +59,7 @@ class Step3 extends React.Component {
     }
 
     this.changeName = this.changeName.bind(this);
+    this.toggleIconPicker = this.toggleIconPicker.bind(this);
     this.toggleColorPicker = this.toggleColorPicker.bind(this);
     this.toggleBgColorPicker = this.toggleBgColorPicker.bind(this);
     this.toggleNameColorPicker = this.toggleNameColorPicker.bind(this);
@@ -80,6 +83,9 @@ class Step3 extends React.Component {
     this.setState({name: e.target.value});
   }
 
+  toggleIconPicker() {
+    this.setState({showIconPicker: !this.state.showIconPicker});
+  }
   toggleColorPicker() {
     this.setState({showColorPicker: !this.state.showColorPicker});
   }
@@ -104,45 +110,34 @@ class Step3 extends React.Component {
   }
 
   save() {
-    let logo = this.refs.logo;
-    console.log(logo);
-    window.logo = logo
-    const {body} = document
+    // let logo = this.refs.logo;
+    // console.log(logo);
+    // window.logo = logo
+    // const {body} = document
+    //
+    // const canvas = document.createElement('canvas')
+    // const ctx = canvas.getContext('2d')
+    // canvas.width = canvas.height = this.state.size
+    //
+    // const tempImg = document.createElement('img')
+    // tempImg.addEventListener('load', onTempImageLoad)
+    // tempImg.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="' + this.state.size + '"  height="' + this.state.size + '"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml"><style>em{color:red;}</style>' + logo.innerHTML + '</div></foreignObject></svg>')
+    //
+    // const targetImg = document.createElement('img')
+    // body.appendChild(targetImg)
+    // function onTempImageLoad(e){
+    //   ctx.drawImage(e.target, 0, 0)
+    //   targetImg.src = canvas.toDataURL()
+    // }
 
-    const canvas = document.createElement('canvas')
-    const ctx = canvas.getContext('2d')
-    canvas.width = canvas.height = this.state.size
-
-    const tempImg = document.createElement('img')
-    tempImg.addEventListener('load', onTempImageLoad)
-    tempImg.src = 'data:image/svg+xml,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="' + this.state.size + '"  height="' + this.state.size + '"><foreignObject width="100%" height="100%"><div xmlns="http://www.w3.org/1999/xhtml"><style>em{color:red;}</style>' + logo.innerHTML + '</div></foreignObject></svg>')
-
-    const targetImg = document.createElement('img')
-    body.appendChild(targetImg)
-    this.print();
-    function onTempImageLoad(e){
-      ctx.drawImage(e.target, 0, 0)
-      targetImg.src = canvas.toDataURL()
-    }
-  }
-
-  print() {
-    HTMLElement.prototype.printMe = HTMLElement.prototype.printMe || printMe;
-    function printMe(query){
-      var myframe = document.createElement('IFRAME');
-      myframe.domain = document.domain;
-      myframe.style.position = "absolute";
-      myframe.style.top = "-10000px";
-      document.body.appendChild(myframe);
-      myframe.contentDocument.write(this.innerHTML) ;
-      setTimeout(function(){
-      myframe.focus();
-      myframe.contentWindow.print();
-      myframe.parentNode.removeChild(myframe) ;// remove frame
-      },3000); // wait for images to load inside iframe
-      window.focus();
-    }
-    document.getElementById('logoBox').printMe();
+    let node = document.getElementById('logoBox');
+    domtoimage.toPng(node)
+    .then(function (dataUrl) {
+        var link = document.createElement('a');
+        link.download = 'my-image-name.jpeg';
+        link.href = dataUrl;
+        link.click();
+    });
   }
 
 
@@ -176,13 +171,13 @@ class Step3 extends React.Component {
       left: this.state.namePositionX + '%',
     }
 
-    let iconSelection = [];
+    let iconGrid = [];
     for(let i=0; i<iconList.length; i++) {
-      iconSelection.push(
-        <option value={iconList[i]} key={'icon-option-' + i}>
-          {iconList[i]}
-        </option>
-      )
+      iconGrid.push(
+        <span onClick={(e)=>{this.changeValue('icon', iconList[i]); this.toggleIconPicker();}}>
+          <i className={iconList[i]}></i>
+        </span>
+      );
     }
 
     return (
@@ -199,9 +194,18 @@ class Step3 extends React.Component {
 
               <div className="input-field">
                 <label>Icon: </label>
-                <select value={this.state.icon} onChange={(e)=>{this.changeValue('icon', e.target.value)}}>
-                  {iconSelection}
-                </select>
+                <div class="icon-picker-container">
+                  {this.state.showIconPicker?
+                    <div>
+                      {iconGrid}
+                    </div>:
+                    <div>
+                      <span><i className={this.state.icon}></i></span>
+                      <Button bsStyle="primary" onClick={this.toggleIconPicker}>Change</Button>
+                    </div>
+                  }
+
+                </div>
               </div>
 
               <div className="input-field">
@@ -304,11 +308,11 @@ class Step3 extends React.Component {
             </div>
 
           </div>
-          <div className="right-col">
-            <div className="logo-box" id="logoBox" ref="logo">
-              <div className="logo-container" style={logoContainerStyle}>
+          <div className="right-col" id="logoBox" >
+            <div className="logo-box" ref="logo">
+              <div className="logo-container" style={logoContainerStyle} on>
                 <i className={this.state.icon} style={logoStyle}></i>
-                <div style={textStyle}>{this.state.name}</div>
+                <div className="logo-text" style={textStyle}>{this.state.name}</div>
               </div>
             </div>
           </div>

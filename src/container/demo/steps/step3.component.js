@@ -27,7 +27,8 @@ const iconList = [
   'fa fa-cubes',
   'fa fa-heartbeat',
   'fa fa-home',
-  'fa fa-industry'
+  'fa fa-industry',
+  'fa fa-battery-full'
 ];
 
 class Step3 extends React.Component {
@@ -194,7 +195,7 @@ class Step3 extends React.Component {
 
               <div className="input-field">
                 <label>Icon: </label>
-                <div class="icon-picker-container">
+                <div className="icon-picker-container">
                   {this.state.showIconPicker?
                     <div>
                       {iconGrid}
@@ -310,7 +311,7 @@ class Step3 extends React.Component {
           </div>
           <div className="right-col" id="logoBox" >
             <div className="logo-box" ref="logo">
-              <div className="logo-container" style={logoContainerStyle} on>
+              <div className="logo-container" style={logoContainerStyle} >
                 <i className={this.state.icon} style={logoStyle}></i>
                 <div className="logo-text" style={textStyle}>{this.state.name}</div>
               </div>

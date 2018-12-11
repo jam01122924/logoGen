@@ -16,7 +16,7 @@ class Demo extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      step: 'step3',
+      step: 'step1',
       name: 'Test Company',
       type: '',
       config: {

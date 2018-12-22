@@ -18,17 +18,20 @@ class Header extends Component {
               <NavItem eventKey={1} href="/home">
                 HOME
               </NavItem>
-              <NavItem eventKey={2} href="/demo">
+              <NavItem eventKey={2} href="/logo-maker">
+                Logo Maker
+              </NavItem>
+              <NavItem eventKey={3} href="/demo">
                 HOW IT WORK
               </NavItem>
-              <NavDropdown eventKey={3} title="PRICE" id="basic-nav-dropdown">
-                <MenuItem eventKey={3.1}>Company Logo</MenuItem>
-                <MenuItem eventKey={3.2}>Company Name</MenuItem>
-                <MenuItem eventKey={3.3}>Company Card</MenuItem>
+              <NavDropdown eventKey={5} title="PRICE" id="basic-nav-dropdown">
+                <MenuItem eventKey={5.1}>Company Logo</MenuItem>
+                <MenuItem eventKey={5.2}>Company Name</MenuItem>
+                <MenuItem eventKey={5.3}>Company Card</MenuItem>
                 <MenuItem divider />
-                <MenuItem eventKey={3.3}>Package</MenuItem>
+                <MenuItem eventKey={5.3}>Package</MenuItem>
               </NavDropdown>
-              <NavItem eventKey={4} href="/contactUs">
+              <NavItem eventKey={6} href="/contactUs">
                 CONTACT
               </NavItem>
             </Nav>

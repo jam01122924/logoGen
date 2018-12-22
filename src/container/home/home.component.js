@@ -1,4 +1,5 @@
 import React from 'react';
+import LogoGenerator from '../logoGenerator/logoGenerator.component';
 
 class Home extends React.Component {
 
@@ -14,6 +15,7 @@ class Home extends React.Component {
   render() {
     return (
       <div className="home-container">
+        <LogoGenerator />
       </div>
     );
   }

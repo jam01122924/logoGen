@@ -1,12 +1,11 @@
 import React from 'react';
 import { Jumbotron, Button, A } from 'react-bootstrap';
-import './style.min.css'
 
 import { connect } from 'react-redux';
 
 import * as logoActions from '../actions';
 
-class Step1CompanyName extends React.Component {
+class CompanyName extends React.Component {
 
   constructor(props, context) {
     super(props, context);
@@ -20,11 +19,11 @@ class Step1CompanyName extends React.Component {
   }
 
   onChange(e) {
-    this.dispatch(logoActions.changeLogo('companyName', e.target.value));
+    this.props.dispatch(logoActions.changeLogo('name', e.target.value));
   }
 
   confirm() {
-    this.dispatch(logoActions.changeStep('industry'));
+    this.props.dispatch(logoActions.changeStep('industry'));
   }
 
   render() {
@@ -34,10 +33,10 @@ class Step1CompanyName extends React.Component {
           <h2>Make a logo within 10 minutes.</h2>
           <div className="sub-label">Use our AI-powered logo maker to instantly create stunning logo designs for your business.</div>
           <div>
-            <input onChange={this.onChange} type="text" placeholder="Let's start with your company name" />
+            <input onChange={this.onChange} value={this.props.name} type="text" placeholder="Let's start with your company name" />
           </div>
           <p>
-            <Button bsStyle="primary" onClick={this.confirm}>Get started</Button>
+            <Button bsStyle="primary" bsSize="large" disabled={!this.props.name} onClick={this.confirm}>Get started</Button>
           </p>
         </Jumbotron>;
       </div>
@@ -45,4 +44,11 @@ class Step1CompanyName extends React.Component {
   }
 }
 
-export default connect()(Step1CompanyName);
+function mapStoreToProps (store, ownProps) {
+	const { logoGeneratorReducer } = store;
+  const { logoData } = logoGeneratorReducer || { logoData: {} };
+  const { name } = logoData || { name: '' };
+	return { name };
+}
+
+export default connect(mapStoreToProps)(CompanyName);

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Jumbotron, Button, A } from 'react-bootstrap';
-import './style.min.css'
 
 import { connect } from 'react-redux';
 
@@ -10,6 +9,8 @@ class Industry extends React.Component {
 
   constructor(props, context) {
     super(props, context);
+    this.onChange = this.onChange.bind(this);
+    this.confirm = this.confirm.bind(this);
   }
 
   componentDidMount() {
@@ -17,24 +18,24 @@ class Industry extends React.Component {
   }
 
   onChange(e) {
-    this.dispatch(logoActions.changeLogo('companyName', e.target.value));
+    this.props.dispatch(logoActions.changeLogo('industry', e.target.value));
   }
 
   confirm() {
-    this.dispatch(logoActions.changeStep('industry'));
+    this.props.dispatch(logoActions.changeStep('pickIdealLogo'));
   }
 
   render() {
     return (
-      <div className="company-name-container">
+      <div className="industry-container">
         <Jumbotron className="jumbotron-container">
-          <h2>Make a logo within 10 minutes.</h2>
-          <div className="sub-label">Use our AI-powered logo maker to instantly create stunning logo designs for your business.</div>
+          <h2>What's your industry?</h2>
+          <div className="sub-label">To get started on your logo, help us understand your brand and what you're about.</div>
           <div className="name-input-box">
-            <input onChange={this.onChange} type="text" />
+            <input onChange={this.onChange} value={this.props.industry} type="text" />
           </div>
           <p>
-            <Button bsStyle="primary" onClick={this.confirm}>Get started</Button>
+            <Button bsStyle="primary" bsSize="large" disabled={!this.props.industry} onClick={this.confirm}>Continue</Button>
           </p>
         </Jumbotron>;
       </div>
@@ -44,7 +45,9 @@ class Industry extends React.Component {
 
 function mapStoreToProps (store, ownProps) {
 	const { logoGeneratorReducer } = store;
-  const { step } = logoGeneratorReducer || { step: '' };
-	return { step };
+  const { logoData } = logoGeneratorReducer || { logoData: {} };
+  const { industry } = logoData || { industry: '' };
+	return { industry };
 }
+
 export default connect(mapStoreToProps)(Industry);

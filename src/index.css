@@ -14,3 +14,83 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+@font-face {
+  font-family: "Adventure";
+  src: url("/fonts/Adventure.otf");
+}
+@font-face {
+  font-family: "AdventureHollow";
+  src: url("/fonts/AdventureHollow.otf");
+}
+@font-face {
+  font-family: "Blazed";
+  src: url("/fonts/Blazed.ttf");
+}
+@font-face {
+  font-family: "Bubblegum";
+  src: url("/fonts/Bubblegum.ttf");
+}
+@font-face {
+  font-family: "FROSTY";
+  src: url("/fonts/FROSTY.ttf");
+}
+@font-face {
+  font-family: "FunSized";
+  src: url("/fonts/FunSized.ttf");
+}
+@font-face {
+  font-family: "GrinchedRegular";
+  src: url("/fonts/GrinchedRegular.otf");
+}
+@font-face {
+  font-family: "GROBOLD";
+  src: url("/fonts/GROBOLD.ttf");
+}
+@font-face {
+  font-family: "HeroesLegend";
+  src: url("/fonts/HeroesLegend.ttf");
+}
+@font-face {
+  font-family: "HeroesLegendHollow";
+  src: url("/fonts/HeroesLegendHollow.ttf");
+}
+@font-face {
+  font-family: "HotSweat";
+  src: url("/fonts/HotSweat.ttf");
+}
+@font-face {
+  font-family: "magicDafont";
+  src: url("/fonts/magicDafont.ttf");
+}
+@font-face {
+  font-family: "ObelixPro-Broken-cyr";
+  src: url("/fonts/ObelixPro-Broken-cyr.ttf");
+}
+@font-face {
+  font-family: "PokemonHollow";
+  src: url("/fonts/PokemonHollow.ttf");
+}
+@font-face {
+  font-family: "PokemonSolid";
+  src: url("/fonts/PokemonSolid.ttf");
+}
+@font-face {
+  font-family: "Sketch3D";
+  src: url("/fonts/Sketch3D.otf");
+}
+@font-face {
+  font-family: "SnowtopCaps";
+  src: url("/fonts/SnowtopCaps.otf");
+}
+@font-face {
+  font-family: "SweetRathulia";
+  src: url("/fonts/SweetRathulia.ttf");
+}
+@font-face {
+  font-family: "TheAmazingSpiderMan";
+  src: url("/fonts/TheAmazingSpiderMan.ttf");
+}
+@font-face {
+  font-family: "VenatorDemo";
+  src: url("/fonts/VenatorDemo.ttf");
+}

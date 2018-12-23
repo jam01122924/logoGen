@@ -1,0 +1,25 @@
+.theme-color-container {
+  display: inline-block;
+  margin: 15px;
+  .theme-color-package {
+    display: inline-block;
+    border: 1px solid black;
+    border-bottom: none;
+    .color-bar {
+      display: inline-block;
+      width: 80px;
+      height: 200px;
+    }
+  }
+  .theme-color-btns {
+    padding: 20px;
+    border: 1px solid black;
+    border-top: none;
+    button {
+      width: 140px;
+    }
+    .picked-btn {
+      background: #48E840;
+    }
+  }
+}

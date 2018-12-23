@@ -16,3 +16,13 @@ export const changeLogo = (field, value) => {
     }
   }
 }
+
+export const pickIdealLogo = (index, selected) => ({
+  type: 'PICK_IDEAL_LOGO',
+  data: { index, selected }
+})
+
+export const pickIdealColor = (index, selected) => ({
+  type: 'PICK_IDEAL_COLOR',
+  data: { index, selected }
+})

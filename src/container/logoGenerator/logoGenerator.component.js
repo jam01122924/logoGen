@@ -1,12 +1,17 @@
 import React from 'react';
-import './style.min.css'
+import './style.css'
 
 import { connect } from 'react-redux';
 import * as actions from './actions';
 
 import CompanyName from './companyName/companyName.component';
 import Industry from './industry/industry.component';
+import PickIdealLogo from './pickIdealLogo/pickIdealLogo.component';
+import PickThemeColor from './pickThemeColor/pickThemeColor.component';
+import WickedEditor from './wickedEditor/wickedEditor.component';
 
+
+PickIdealLogo
 class LogoGenerator extends React.Component {
 
   constructor(props, context) {
@@ -26,6 +31,16 @@ class LogoGenerator extends React.Component {
       case 'industry':
         content = <Industry />
       break;
+      case 'pickIdealLogo':
+        content = <PickIdealLogo />
+      break;
+      case 'pickThemeColor':
+        content = <PickThemeColor />
+      break;
+      case 'logoEditor':
+        content = <WickedEditor />
+      break;
+
       default:
       break;
     }
